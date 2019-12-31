@@ -1,0 +1,21 @@
+<h5 *ngIf="labels">{{ labels.concept_id }}</h5>
+
+<!-- The Modal -->
+<div id="myModal" class="modal" [class.showmodal]="modalStyle">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="onClickClose()">&times;</span>
+    <div>
+      <p *ngIf="show; else elseBlock">Labels</p>
+      <ng-template #elseBlock>No Label found</ng-template>
+    </div>
+
+    <ul *ngIf="labels">
+      <li *ngFor="let label of labels">
+        <p>Type : {{ label.label_type_id }}</p>
+        <p>Description: {{ label.label_description }}</p>
+        <p>Language: {{ label.language }}</p>
+      </li>
+    </ul>
+  </div>
+</div>

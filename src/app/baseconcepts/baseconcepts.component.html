@@ -1,0 +1,29 @@
+<div class="addnew">
+  <button routerLink="/addnew">Add New Concept</button>
+</div>
+<div class="wrapper">
+  <table datatable class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Period Type</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let concept of baseConcepts">
+        <td (click)="onClickConcept(concept)">{{ concept.concept_id }}</td>
+        <td>{{ concept.concept_name }}</td>
+        <td>{{ concept.concept_type }}</td>
+        <td>{{ concept.period_type }}</td>
+        <td>
+          <button (click)="onClickEditConcept(concept)">Edit</button>
+          <button (click)="onClickDeleteConcept(concept)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-baselabels [labels]="labels"></app-baselabels>
+</div>

@@ -1,0 +1,64 @@
+<h1>Add New Concept</h1>
+<form [formGroup]="addNewForm" (ngSubmit)="onSubmit()">
+  <h5 *ngIf="success" class="success">Concept record created!</h5>
+
+  <label>
+    Concept Id:
+    <input type="text" formControlName="conceptid" />
+    <div
+      *ngIf="submitted && addNewForm.controls.conceptid.errors"
+      class="error"
+    >
+      <div *ngIf="addNewForm.controls.conceptid.errors.required">
+        Concept Id is required
+      </div>
+    </div>
+  </label>
+
+  <label>
+    Concept Name:
+    <input type="text" formControlName="conceptname" />
+    <div
+      *ngIf="submitted && addNewForm.controls.conceptname.errors"
+      class="error"
+    >
+      <div *ngIf="addNewForm.controls.conceptname.errors.required">
+        Concept Name is required
+      </div>
+    </div>
+  </label>
+
+  <label>
+    Concept Type:
+    <select formControlName="concepttype">
+      <option value="nonnum:domainItemType">nonnum:DomainItemTyp</option>
+      <option value="xbril:IntegerItemType">xbril:IntegerItemType</option>
+    </select>
+    <div
+      *ngIf="submitted && addNewForm.controls.concepttype.errors"
+      class="error"
+    >
+      <div *ngIf="addNewForm.controls.concepttype.errors.required">
+        Concept Type is required
+      </div>
+    </div>
+  </label>
+
+  <label>
+    Period Type:
+    <select formControlName="periodtype">
+      <option value="duration">Duration</option>
+      <option value="instant">Instant</option>
+    </select>
+    <div
+      *ngIf="submitted && addNewForm.controls.periodtype.errors"
+      class="error"
+    >
+      <div *ngIf="addNewForm.controls.periodtype.errors.required">
+        Period Type is required
+      </div>
+    </div>
+  </label>
+  <input type="hidden" formControlName="id" />
+  <input type="submit" value="Add" class="cta" />
+</form>
